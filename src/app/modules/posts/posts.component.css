@@ -1,0 +1,56 @@
+.container{
+    background: url('https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80');
+    padding: 20px 20px 30px 20px;
+}
+
+.row2{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+input,textarea{
+    background-color: rgb(241, 239, 233);
+}
+label{
+    color: wheat;
+}
+.form-group{
+    padding: 10px;
+}
+option{
+    background-color: li;
+}
+.align{
+    margin-right: 20px;
+}
+.displayField{
+    color: beige;
+}
+span{
+    color: red;
+}
+/* mat passwrod */
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+}  
+.example-container{
+    width: 100%;
+}
+.mat-button{
+    margin-left: -20px;
+    margin-top: 20px;
+}

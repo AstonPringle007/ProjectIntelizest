@@ -1,0 +1,56 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="toggleSideBar()" matTooltip="Menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div style="padding: 10px;">
+          <img 
+            src="https://media.licdn.com/dms/image/C560BAQFMxhOvebQaug/company-logo_200_200/0/1643374805319?e=2147483647&v=beta&t=F1Y8nYna5tidGE6usw_HEuwFJuxVdZmjjmcEEl-wsmA" 
+            alt="logo"
+            height="20"
+            width="20">
+        <span>Intelizest</span>
+        </div>
+        <div class="four-icon">
+            <span class="example-spacer"></span>
+            <button mat-icon-button (click)="openDialog()" matTooltip="Add new Product">
+                <mat-icon>create_new_folder</mat-icon>
+            </button>  
+           <button mat-icon-button class="example-icon favorite-icon" matTooltip="Settings" aria-label="Example icon-button with heart icon">
+              <mat-icon>settings</mat-icon>
+           </button>
+           <button mat-icon-button class="example-icon" matTooltip="Help" aria-label="Example icon-button with share icon">
+              <mat-icon>help_ouline</mat-icon>
+           </button>
+           <button mat-button [matMenuTriggerFor]="menu" matTooltip="Sign out">
+              <mat-icon>person outline</mat-icon>
+           </button>
+           <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                Sign out
+              </button>
+           </mat-menu>
+        </div>
+       
+<!-- Used 3 icons instead of these code -->
+        <!-- <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+            <ul fxLayout="row" fxLayoutGap="20px">
+                <li>
+                    <button mat-icon-button>
+                        <mat-icon>settings</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-icon-button>
+                        <mat-icon>help_ouline</mat-icon>
+                    </button>
+                </li>
+                <li>
+                  menu 
+                </li>
+            </ul>
+        </div> -->
+        
+    </mat-toolbar-row>
+</mat-toolbar>

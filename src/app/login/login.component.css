@@ -1,0 +1,31 @@
+/* .example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+
+ .background-mat-card{ 
+  margin-top: 10%;
+  width: 50%;
+  height: 350px;
+}
+.background-mat-card-content{
+  margin-left: 60%;
+  margin-top: 40%;
+}*/
+img{
+    width:200px;
+    height: 200px;
+  
+  }  
+  .row
+  {
+    background-image: url('https://previews.123rf.com/images/tomkhanong/tomkhanong1510/tomkhanong151000124/48171109-bamboo-left-side-green-background.jpg');
+    height: 80vh;
+    /* margin-top: 5%; */
+    width: 1000px;
+    margin-left: 8%;
+   
+    
+  }
+  .button{
+    background-color: lightgreen;
+  }

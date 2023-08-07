@@ -1,0 +1,21 @@
+<form [formGroup]="phoneForm" (ngSubmit)="onSubmitPhone()">
+  <mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input 
+        matInput 
+        placeholder="e.g. 999-999-999" 
+        formControlName="phonenumber" 
+        minlength="10" 
+        maxlength="10"
+        >
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error>{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-dialog-actions>
+      <button mat-raised-button color="primary" >Save</button>
+      <button mat-raised-button color="warn" matDialogClose>Back</button>
+    </mat-dialog-actions> 
+  </mat-dialog-content>
+</form>
+<!-- [disabled]="phoneForm.invalid" -->

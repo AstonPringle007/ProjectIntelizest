@@ -1,0 +1,55 @@
+<h2 mat-dialog-title>Product Form</h2>
+<div mat-dialog-content>
+    <form [formGroup]="productForm" (ngSubmit)="onAddProducts()">
+        <mat-form-field appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="product">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Enter your Product</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-select placeholder="Category" formControlName="category">
+                <mat-option value="fruits">Fruits</mat-option>
+                <mat-option value="vegetables">Vegetables</mat-option>
+                <mat-option value="electronics">Electronics</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" class="dateMat">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-label><h2>Product Freshness</h2></mat-label>
+        <mat-radio-group aria-label="Select an option" formControlName="freshness">
+            <mat-radio-button
+              style="padding: 10px;"
+              *ngFor="let fresh of freshnessList" 
+              [value]="fresh">
+              {{fresh}}
+            </mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" placeholder="Name" formControlName="price">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..." formControlName="comment"></textarea>
+        </mat-form-field>
+        <div mat-dialog-action>
+            <div class="row">
+                <div class="col-6" [align]="'start'">
+                    <button mat-raised-button style="background-color: MediumSeaGreen;" type="submit" (click)="onIncrement()">
+                        <mat-icon style="color: white;">done_outline</mat-icon>
+                    </button>
+                </div>
+                <div class="col-6" [align]="'end'">
+                    <button mat-raised-button color="warn" mat-dialog-close type="button">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

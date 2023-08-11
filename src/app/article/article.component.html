@@ -47,25 +47,48 @@
                 <th scope="col">Email</th>
                 <th scope="col">Delete</th>
                 <th scope="col">Edit</th>
-                <th></th>
                 <th scope="col">Phone No</th>
+                <th scope="col">Occupation</th>
+                <!-- <th scope="col">Occupation</th> -->
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let user of users | filter:filterString">
-                <th scope="row">{{user.id}}</th>
-                <td>{{user.first_name}} {{user.last_name}} </td>
-                <td><img src="{{user.avatar }}" alt="" width="35" height="30"></td>
-                <td>{{user?.email}}</td>
-                <td (click)="onDeletePosts(user.id)"><mat-icon>delete_forever</mat-icon></td>
-                <td>
-                  <div (click)="onEditClicked(user.id)">
-                    <mat-icon (click)="openDialog(user.id)">edit</mat-icon>
-                  </div>  
-                </td>
-                <td></td>
-                <td >{{user?.phNo}}</td>
-              </tr>
+              <!-- *ngFor="let user of users | filter:filterString" -->
+                <tr *ngFor="let user of users | filter:filterString; let i = index;">
+                  <th scope="row">{{user.id}}</th>
+                  <td>{{user.first_name}} {{user.last_name}} </td>
+                  <td><img src="{{user.avatar }}" alt="" width="35" height="30"></td>
+                  <td>{{user?.email}}</td>
+                  <td (click)="onDeletePosts(user.id)"><mat-icon>delete_forever</mat-icon></td>
+                  <td>
+                    <div (click)="onEditClicked(user.id)">
+                      <mat-icon (click)="openDialog(user.id)">edit</mat-icon>
+                    </div>  
+                  </td>
+                  <td>
+                    <div>
+                      <ng-container 
+                        [ngTemplateOutlet]="user?.phTem" 
+                        [ngTemplateOutletContext]="{ $implicit : {i:i} }">
+                      </ng-container>
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <ng-container 
+                        [ngTemplateOutlet]="user?.occupation" 
+                        [ngTemplateOutletContext]="{ $implicit : {i:i} }">
+                      </ng-container>
+                    </div>
+                  </td>
+                  <!-- ng-template -->
+                  <!-- <ng-container *ngIf="user.phNo;else elseTemplate">
+                    <td >{{user?.phNo}}</td>
+                  </ng-container>
+                  <ng-template #elseTemplate>
+                    <td>NO DATA AVAILABLE</td>
+                  </ng-template> -->
+                </tr>
             </tbody>
           </table>
           <div *ngIf="error">
@@ -81,6 +104,18 @@
     </div>  
 </div>
 
+<ng-template #elseTemplatePhno let-line>
+  <ng-container>
+    <div>{{users[line.i]?.phNo}}</div>
+  </ng-container>
+    <div *ngIf="!users[line.i]?.phNo">NO DATA AVAILABLE</div>
+</ng-template>
+<ng-template #elseTemplateOccupation let-line>
+  <ng-container>
+    <div>{{users[line.i]?.occup}}</div>
+  </ng-container>
+    <div *ngIf="!users[line.i]?.phNo">NO DATA AVAILABLE</div>
+</ng-template>
 
 <!-- <ol>
   <li>

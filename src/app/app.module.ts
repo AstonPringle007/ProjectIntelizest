@@ -14,17 +14,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DefaultModule } from './layouts/default/default.module';
-import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableComponent } from './mat-table/mat-table.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { TablePaginationComponent } from './table-pagination/table-pagination.component';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
-// import { ServiceWorkerModule } from '@angular/service-worker';
-// import { environment } from 'src/environments/environment';
 // import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 
@@ -58,7 +56,6 @@ import {MatSortModule} from '@angular/material/sort';
     MatPaginatorModule,
     MatTableModule,
     MatSortModule,
-    // ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   entryComponents:[],
   providers: [

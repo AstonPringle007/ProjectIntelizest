@@ -13,14 +13,16 @@
           </mat-form-field><br>
           <mat-form-field>
             <mat-label>Enter your password</mat-label>
-            <input matInput formCo  ntrolName="password">
+            <input matInput formControlName="password">
             <mat-error *ngIf="signUpForm.get('password').hasError('required')">This Field is required</mat-error>
           </mat-form-field><br><br>
-          <button mat-raised-button class="button" [disabled]="signUpForm.invalid" >Sign Up</button>&nbsp;
+          <button 
+            mat-raised-button 
+            class="button" 
+            [disabled]="signUpForm.invalid" >
+            Sign Up
+          </button>&nbsp;
         </form> 
       </div>
     </div>
   </div>
-
-
-          <!-- <img id="img" style="margin-left: 30px;" src="https://previews.123rf.com/images/tomkhanong/tomkhanong1510/tomkhanong151000124/48171109-bamboo-left-side-green-background.jpg"> -->

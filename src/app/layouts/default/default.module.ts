@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { DefaultComponent } from './default.component';
 import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
-import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PopUpComponent } from 'src/app/modules/pop-up/pop-up.component';
@@ -23,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material/select';
 import { HttptabledataService } from 'src/app/httptabledata.service';
 
 
@@ -31,7 +31,6 @@ import { HttptabledataService } from 'src/app/httptabledata.service';
   declarations: [
     DefaultComponent,
     DashboardComponent,
-    PostsComponent,
     PopUpComponent,
     ArticleComponent,
     DialogOverviewExampleDialogComponent,
@@ -54,6 +53,7 @@ import { HttptabledataService } from 'src/app/httptabledata.service';
     MatSnackBarModule,
     InputTextareaModule,
     MatButtonModule,
+    MatSelectModule,
     EditorModule,
   ],
   providers: [],

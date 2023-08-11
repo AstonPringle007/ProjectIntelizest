@@ -8,12 +8,13 @@ export class HttpService {
 
   constructor(private http:HttpClient) { }
 
-  createPosts(data:any){
-    // console.log(name, job)
+//Promises and Async
+  async createPosts(data:any){
     return this.http.post('https://reqres.in/api/users', data, {
       observe: 'response'
-    })
+    }).toPromise();
   }
+//Normal Angular  
   getPosts(){
     return this.http.get('https://reqres.in/api/users?page=1');
   }

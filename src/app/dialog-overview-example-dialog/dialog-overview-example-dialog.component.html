@@ -12,10 +12,19 @@
       <mat-icon matSuffix>phone</mat-icon>
       <mat-error>{{getErrorMessage()}}</mat-error>
     </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Occupation</mat-label>
+      <mat-select formControlName="occupation">
+        <mat-option value="doctor">Doctor</mat-option>
+        <mat-option value="lawyer">Lawyer</mat-option>
+        <mat-option value="architecture">Architecture</mat-option>
+      </mat-select>
+      <mat-hint [align]="'end'">Select a job^</mat-hint>
+    </mat-form-field>
+  </mat-dialog-content>
     <mat-dialog-actions>
       <button mat-raised-button color="primary" >Save</button>
       <button mat-raised-button color="warn" matDialogClose>Back</button>
     </mat-dialog-actions> 
-  </mat-dialog-content>
 </form>
 <!-- [disabled]="phoneForm.invalid" -->

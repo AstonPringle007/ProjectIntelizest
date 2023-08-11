@@ -17,6 +17,9 @@ import { ChartModule } from 'primeng/chart';
 import { NgPrimeChartsComponent } from './widgets/ng-prime-charts/ng-prime-charts.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 // import { HighchartsChartModule } from 'highcharts-angular';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -43,6 +46,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     ChartModule,
     MatTooltipModule,
     MatBadgeModule,
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule
     // HighchartsChartModule,
   ],
   exports: [

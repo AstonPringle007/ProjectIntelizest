@@ -25,7 +25,8 @@ export class DialogOverviewExampleDialogComponent  {
 
   ngOnInit(){
     this.phoneForm = this.formBuilder.group({
-      phonenumber: ['', [Validators.required, Validators.pattern(/^[789]\d{9}$/)]]
+      phonenumber: ['', [Validators.required, Validators.pattern(/^[789]\d{9}$/)]],
+      occupation: ['', [Validators.required]],
     })
   }
   // value(event:any){
@@ -38,12 +39,20 @@ export class DialogOverviewExampleDialogComponent  {
   // }
   
   onSubmitPhone(){
-    this.phoneValue = {id: this.data , ph: this.phoneForm.value.phonenumber};
+    let dataBoolean = false
+    if(this.phoneForm.value.phonenumber.length > 8){
+      dataBoolean = true;
+    }
+    this.phoneValue = {
+      id: this.data , 
+      ph: this.phoneForm.value.phonenumber, 
+      db:dataBoolean, 
+      occu: this.phoneForm.value.occupation
+    };
     let currIndex = this.currentIndex
     // this.mainService.getCurrentPhoneNo(currIndex, phoneValue);
     // console.log(currIndex);
     this.onNoClick()
-    console.log(this.phoneForm.value.phonenumber)
   }
   onNoClick(): void {
     this.dialogRef.close(this.phoneValue);

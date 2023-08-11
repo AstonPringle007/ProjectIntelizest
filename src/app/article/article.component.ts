@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MainService } from '../main.service';
 import { HttpService } from '../http.service';
@@ -32,6 +32,10 @@ export class ArticleComponent implements OnInit {
   //Mat dialog
   row:any;
   phonenumber?:any;
+  //Ng Template
+  xyz:any = false;
+  @ViewChild('elseTemplatePhno', {static: true}) elseTemplatePhno: TemplateRef<HTMLElement>;
+  @ViewChild('elseTemplateOccupation', {static: true}) elseTemplateOccupation: TemplateRef<HTMLElement>;
 
   constructor(
     private formBuilder:FormBuilder, 
@@ -39,6 +43,7 @@ export class ArticleComponent implements OnInit {
     private httpService:HttpService,
     private _snackBar: MatSnackBar,
     private router:Router,
+    private vref: ViewContainerRef,
     public dialog: MatDialog,) { 
       this.mainService.phoneEmit.subscribe(res => {
         console.log(res)
@@ -62,14 +67,20 @@ export class ArticleComponent implements OnInit {
     const job1 = this.articleForm.value.job;
     const userData = {name1, job1};
     if(!this.editMode){
-      this.httpService.createPosts(userData).subscribe((res)=>{
-        if(res.status === 201){
-          console.log(res)
-          this.openSnackBar('User Created Successfully', 'X')
-        }else{
-          this.openSnackBar('show please provide correct id.', 'X')
-        }
+      // this.httpService.createPosts(userData).subscribe((res)=>{
+      //   if(res.status === 201){
+      //     console.log(res)
+      //     this.openSnackBar('User Created Successfully', 'X')
+      //   }else{
+      //     this.openSnackBar('show please provide correct id.', 'X')
+      //   }
+      // });
+      this.httpService.createPosts(userData).then((data: any) => {
+        console.log(data)
+        console.log('sffasfas')
       });
+
+
       if(this.articleForm.value.phonenumber.length !== 0 || this.articleForm.value.phonenumber === ''){
          this.router.navigate(['/tables'])
       }
@@ -84,8 +95,13 @@ export class ArticleComponent implements OnInit {
   }
   onFetchPosts(){
     this.httpService.getPosts().subscribe(response => {
-      this.users = response['data']
-      console.log(response['data']);
+      this.users = response['data'];
+      this.users.forEach(u => {
+        u.phTem = this.elseTemplatePhno;
+        u.occupation = this.elseTemplateOccupation;
+      });
+
+      console.log(response['data'], this.users);
     }, error => {
       console.log(error.message)
     })
@@ -117,6 +133,7 @@ export class ArticleComponent implements OnInit {
   }
   //Mat
   openDialog(id:number){
+    console.log(this.elseTemplatePhno);
     const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
       width: '350px',
       data: id
@@ -125,15 +142,21 @@ export class ArticleComponent implements OnInit {
       // const phoneValues = [];
       // phoneValues.push(result)
       this.phonenumber = result;
+      console.log(this.phonenumber);
       this.users.forEach((val, i) => {
+        val.phTem = this.elseTemplatePhno;
+        val.occupation = this.elseTemplateOccupation;
         // if(val.id === phoneValues[0].id) {
         //   val.phNo = phoneValues[0].ph;
         // }
-        if(val.id === this.phonenumber.id){
-           val.phNo = this.phonenumber.ph
+        if(val?.id === this.phonenumber?.id){
+          val.phNo = this.phonenumber.ph
+          val.occup = this.phonenumber.occu;
+          // console.log(this.phonenumber.occu);
         }
+
       })
-      console.log(result);
+      console.log(result, this.users);
     });
     this.mainService.getIndex(id);
   }

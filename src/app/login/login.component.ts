@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   
   onSignUp(){
      console.log(this.signUpForm);
-    //  this.route.navigate(['/dashboard']);
+     this.route.navigate(['/dashboard']);
   }
 
 

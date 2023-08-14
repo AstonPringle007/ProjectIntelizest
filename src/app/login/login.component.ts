@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   signUpForm:FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private route:Router) { }
+  constructor(private formBuilder:FormBuilder, private router:Router) { }
 
   ngOnInit() {
     this.signUpForm = this.formBuilder.group({
@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
   
   onSignUp(){
      console.log(this.signUpForm);
-     this.route.navigate(['/dashboard']);
+  }
+  toDashboard(){
+    this.router.navigate(['/dashboard']);
   }
 
 

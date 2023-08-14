@@ -1,28 +1,30 @@
-<div class="container-fluid" >
-    <div class="row " >
-      <div class="col-6 col-md-12">
-        
-     </div>
-      <div class="col-6 col-md-12" style="margin-left: 70%;margin-top: 5%;">
-        <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()"> 
-          <mat-form-field>
-            <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="pat@example.com" formControlName="email">
-            <mat-error *ngIf="signUpForm.get('email').hasError('required')">This Field is required</mat-error>
-            <mat-error *ngIf="signUpForm.get('email').hasError('email')">Please enter valid email</mat-error>
-          </mat-form-field><br>
-          <mat-form-field>
+<div class="full-page-container">
+  <div class="container container-fluid">
+    <div class="row">
+      <div class="col-6 column-6-1">
+        <h1>Welcome to Intelizest !!!</h1>
+      </div>
+      <div class="col-6 column-6-2">
+        <form [formGroup]="signUpForm" (ngSubmit)="toDashboard()" class="form">
+          <h2>SIGN IN</h2>
+          <mat-form-field appearance="outline" class="mat-form-field-appearance-outline mat-form-field-outline ">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" required>
+            <mat-error *ngIf="signUpForm.get('email').hasError('required')">This field is required</mat-error>
+            <mat-error *ngIf="signUpForm.get('email').hasError('email')">Email is required</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
             <mat-label>Enter your password</mat-label>
             <input matInput formControlName="password">
-            <mat-error *ngIf="signUpForm.get('password').hasError('required')">This Field is required</mat-error>
-          </mat-form-field><br><br>
-          <button 
-            mat-raised-button 
-            class="button" 
-            [disabled]="signUpForm.invalid" >
-            Sign Up
-          </button>&nbsp;
-        </form> 
+            <mat-error *ngIf="signUpForm.get('password').hasError('required')">This field is required</mat-error>
+          </mat-form-field>
+          <div>
+            <button class="button" mat-raised-button color="warn" [disabled]="signUpForm.invalid"
+              (click)="toDashboard()">Continue</button>
+          </div>
+          <a href="#">Forget password?</a>
+        </form>
       </div>
     </div>
   </div>
+</div>

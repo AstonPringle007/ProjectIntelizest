@@ -1,4 +1,4 @@
-
+/* 
 img{
     width:200px;
     height: 200px;
@@ -8,7 +8,6 @@ img{
   {
     background-image: url('https://previews.123rf.com/images/tomkhanong/tomkhanong1510/tomkhanong151000124/48171109-bamboo-left-side-green-background.jpg');
     height: 80vh;
-    /* margin-top: 5%; */
     width: 1000px;
     margin-left: 8%;
    
@@ -16,4 +15,123 @@ img{
   }
   .button{
     background-color: lightgreen;
+  } */
+
+* {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.full-page-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://img.freepik.com/premium-vector/network-connection-background-abstract-style_23-2148875738.jpg');
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  width: 1200px;
+  height: 600px;
+  margin: auto;
+}
+
+.col-6 {
+  width: 568px;
+  height: 100%;
+}
+
+.column-6-1 {
+  background-image: url('https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=740&t=st=1691912369~exp=1691912969~hmac=bd9b395d4237d828e7fe91f61bbcac834a18f08252af569be56d0110d8ec0a72');
+  background-size: cover;
+  background-position-y: 50px;
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
+}
+
+.column-6-1 h1 {
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 6%;
+}
+
+.column-6-2 {
+  background-image: linear-gradient(to bottom right, #3498db, #8e44ad);
+  border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+mat-form-field {
+  height: 10%;
+  width: 60%;
+  border-radius: 20px;
+  margin-top: 5%;
+  color: rebeccapurple
+}
+
+.form h2 {
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 40px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px red, 0 0 25px blue, 0 0 5px darkblue;
+  color: bisque;
+  font-family: 'Arial Narrow Bold';
+}
+
+.button {
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 15%;
+  font-weight: bold;
+}
+.form{
+  margin: auto;
+}
+.form a {
+  text-decoration: none;
+  color: black;
+  margin-top: 5%;
+}
+
+.form a:hover {
+  color: orange;
+}
+
+.form-data{
+  height: 100%;
+  width: 100%;
+}
+.borders{
+   border: 1px solid red;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white;
   }
+  /* Font color */
+  input.mat-input-element {
+  color: white;
+  }
+/* .form-control{
+}
+
+.form-group{
+  height: 30%;
+  width: 50%;
+  border-radius: 20px;
+  color: antiquewhite;
+  margin-top: 20px;
+} */

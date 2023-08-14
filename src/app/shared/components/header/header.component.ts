@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MatTableComponent } from 'src/app/mat-table/mat-table.component';
 
 @Component({
@@ -10,7 +11,7 @@ import { MatTableComponent } from 'src/app/mat-table/mat-table.component';
 export class HeaderComponent implements OnInit {
   @Output() toggleSideBarForMe:EventEmitter<any> = new EventEmitter();
 
-  constructor(private dialog:MatDialog) {}
+  constructor(private dialog:MatDialog, private router:Router) {}
 
   ngOnInit(){
   }
@@ -21,6 +22,9 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(MatTableComponent, {
       width: '30%'
     })
+  }
+  onSignOut(){
+    this.router.navigate(['/'])
   }
 
 }
